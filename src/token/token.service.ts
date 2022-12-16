@@ -64,6 +64,12 @@ export class TokenService {
     });
   }
 
+  async findTokenByUserId(user) {
+    return await this.tokenRepository.findOne({
+      where: { user: user.id },
+    });
+  }
+
   async removeToken(refreshToken: string): Promise<DeleteResult> {
     const token = await this.findToken(refreshToken);
     if (!token) {

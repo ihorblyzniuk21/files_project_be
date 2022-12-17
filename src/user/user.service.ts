@@ -6,6 +6,7 @@ import { decode } from 'jsonwebtoken';
 import { TokenService } from '@app/token/token.service';
 import { GenerateTokenInterface } from '@app/token/types/generateToken.interface';
 import { UserResponseInterface } from '@app/user/types/userResponse.interface';
+import { CreateUserDto } from '@app/user/dto/createUser.dto';
 
 @Injectable()
 export class UserService {
@@ -15,7 +16,7 @@ export class UserService {
     private readonly tokenService: TokenService,
   ) {}
 
-  async login(token: string): Promise<UserResponseInterface> {
+  async login(token: CreateUserDto): Promise<UserResponseInterface> {
     const decodedUser = decode(token);
     const user = {
       name: decodedUser.name,

@@ -35,6 +35,13 @@ $ npm install
 ## Running the app
 
 ```bash
+#1) Create db and .env file in the root directory ( see .example.env )
+# enter your db credentials into ormconfig.ts file
+
+#2) Run 
+$ npm run db:migrate
+
+#3) Run the app
 # development
 $ npm run start
 

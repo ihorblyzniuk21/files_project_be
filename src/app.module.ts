@@ -14,8 +14,8 @@ import * as path from 'path';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     TypeOrmModule.forRoot(ormconfig),
-    ConfigModule.forRoot({ envFilePath: '.env' }),
     ServeStaticModule.forRoot({
       rootPath: path.resolve(__dirname, 'public'),
       // serveRoot: './dist/public/',
